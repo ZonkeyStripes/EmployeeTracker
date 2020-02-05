@@ -5,7 +5,7 @@ USE employeeTrack_db;
 
 CREATE TABLE department (
     ID INT(20) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    name VARCHAR(35) NOT NULL,
+    name VARCHAR(35) NOT NULL
 );
 
 CREATE TABLE role (
@@ -18,10 +18,10 @@ CREATE TABLE role (
 
 CREATE TABLE employee (
     ID INT(20) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    first_name varchar(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    role_id INT(20) NOT NULL,
-    FOREIGN KEY (role_id) REFERENCES roles(id),
-    manager_id INT(20),
-    FOREIGN KEY (manager_id) REFERENCES manager(id)
+    first_name varchar (20)NOT NULL,
+    last_name VARCHAR (20)NOT NULL,
+    role_id INT(10) NOT NULL,
+    FOREIGN KEY (role_id) REFERENCES role(id),
+    manager_id INT(10),
+    FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
