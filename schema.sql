@@ -25,3 +25,28 @@ CREATE TABLE employee (
     manager_id INT(10),
     FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
+
+INSERT INTO department (name) VALUES ("Front of House");
+INSERT INTO department (name) VALUES ("Back of House");
+INSERT INTO department (name) VALUES ("Financial");
+INSERT INTO department (name) VALUES ("Manager");
+
+SELECT * from department;
+
+INSERT INTO role (title, salary, department_id) VALUES ("Server", "15000", "1");
+INSERT INTO role (title, salary, department_id) VALUES ("Cashier", "15000", "1");
+INSERT INTO role (title, salary, department_id) VALUES ("Line Cook", "20000", "2");
+INSERT INTO role (title, salary, department_id) VALUES ("Prep Cook", "25000", "2");
+INSERT INTO role (title, salary, department_id) VALUES ("Dish Washer", "15000", "2");
+INSERT INTO role (title, salary, department_id) VALUES ("Supervisor", "30000", "4");
+
+SELECT * from role;
+
+INSERT INTO employee (first_name, last_name, role_id) VALUES ("Harvey", "Birdman", "1");
+INSERT INTO employee (first_name, last_name, role_id) VALUES ("Brakk", "Leftover", "1");
+INSERT INTO employee (first_name, last_name, role_id) VALUES ("Washa", "Lotta", "2");
+INSERT INTO employee (first_name, last_name, role_id) VALUES ("Hudien", "Lotta", "2");
+INSERT INTO employee (first_name, last_name, role_id) VALUES ("Fu Kin", "Mel Ting", "4");
+INSERT INTO employee (first_name, last_name, role_id) VALUES ("Sherry", "Hils", "3");
+
+SELECT * from employee;
