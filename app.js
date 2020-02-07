@@ -1,5 +1,5 @@
 const mysql = require("mysql");
-// const cTable = require('console.table');
+const cTable = require('console.table');
 const inquirer = require("inquirer");
 
 let connection = mysql.createConnection({
@@ -69,13 +69,15 @@ function viewEmployee() {
     connection.query("SELECT * FROM employee", function (err, result) {
         if (err) throw err;
         console.table(result);
+        userPrompt();
     });
 }
 
 function viewDepartment() {
     connection.query("SELECT * FROM department", function (err, result) {
         if (err) throw err;
-        console.table(result)
+        console.table(result);
+        userPrompt();
     });
 }
 
@@ -83,6 +85,7 @@ function viewRoles() {
     connection.query("SELECT * FROM role", function(err, result) {
         if(err) throw err;
         console.table(result)
+        userPrompt();
     });
 }
 // Add functions //
@@ -129,6 +132,7 @@ function addDepartment() {
         connection.query("SELECT * FROM department", function(err, result) {
             if(err) throw err;
             console.table(result);
+            userPrompt();
         });
     });
 }
@@ -157,6 +161,7 @@ function addRole() {
         connection.query("SELECT * FROM role", function(err, result) {
             if(err) throw err;
             console.table(result);
+            userPrompt();
         });
     });
 }
@@ -176,8 +181,9 @@ inquirer.prompt([
     connection.query("SELECT * FROM employee;", function(err, result) {
         if(err) throw err;
         console.table(result)
-    })
-})
+        userPrompt();
+    });
+});
 }
 
 function removeDepo() {
@@ -195,8 +201,9 @@ function removeDepo() {
         connection.query("SELECT * FROM department;", function(err, result) {
             if(err) throw err;
             console.table(result)
-        })
-    })
+            userPrompt();
+        });
+    });
 }
 
 function removeRole() {
@@ -214,6 +221,19 @@ function removeRole() {
         connection.query("SELECT * FROM role;", function(err, result) {
             if(err) throw err;
             console.table(result)
-        })
+            userPrompt();
+        });
+    });
+}
+
+function updateEmployee() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "updater",
+            message: "What is the first name of the Employee you would like to update?"
+        }
+    ]).then(answers => {
+        connection.query(``)
     })
 }
